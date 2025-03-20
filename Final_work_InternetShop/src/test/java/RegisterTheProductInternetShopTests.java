@@ -28,7 +28,7 @@ public class RegisterTheProductInternetShopTests {
     @After
     public void tearDown() throws IOException {
         var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(sourseFile, new File("D:\\tmp\\screenshot.png"));
+        FileUtils.copyFile(sourseFile, new File("C:\\tmp\\screenshot.png"));
         driver.quit();
     }
     private By catalogMainPageLocator = By.xpath("//*[contains(@class,'menu')]/*[contains(@class,'menu-item')]/a[text()='Каталог']");
