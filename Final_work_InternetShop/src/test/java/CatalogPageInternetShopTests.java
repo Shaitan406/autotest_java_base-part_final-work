@@ -30,7 +30,7 @@ public class CatalogPageInternetShopTests {
     public void tearDown() throws IOException
     {
         var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(sourseFile, new File("D:\\tmp\\screenshot.png"));
+        FileUtils.copyFile(sourseFile, new File("C:\\tmp\\screenshot.png"));
         driver.quit();
     }
     private By titlePageLocator = By.cssSelector("h1.entry-title.ak-container");
