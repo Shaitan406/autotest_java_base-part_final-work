@@ -26,7 +26,8 @@ public class RegisterTheProductInternetShopTests {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
     @After
-    public void tearDown() throws IOException {
+    public void tearDown() throws IOException 
+    {
         var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(sourseFile, new File("screenshots\\screenshot.png"));
         driver.quit();
