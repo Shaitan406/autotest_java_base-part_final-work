@@ -33,8 +33,8 @@ public class MyAccountRegistrationAndAuthorization { //мой аккаунт р�
     @After
     public void tearDown() throws IOException
     {
-        var sourseFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(sourseFile, new File("C:\\tmp\\screenshot.png"));
+        var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(sourseFile, new File("screenshots\\screenshot.png"));
         driver.quit();
     }
     private By myAccountMainPageLocator = By.xpath("//*[contains(@class,'menu')]/*[contains(@class,'menu-item')]/a[text()='Мой аккаунт']");
