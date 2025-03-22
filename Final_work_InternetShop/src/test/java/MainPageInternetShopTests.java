@@ -32,8 +32,8 @@ public class MainPageInternetShopTests {
     @After
     public void tearDown() throws IOException
     {
-        var sourseFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(sourseFile, new File("C:\\tmp\\screenshot.png"));
+       var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(sourseFile, new File("screenshots\\screenshot.png"));
         driver.quit();
     }
     @Test
