@@ -19,16 +19,14 @@ public class CatalogPageInternetShopTests {
     private String url = "https://intershop5.skillbox.ru/";
 
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
     @After
-    public void tearDown() throws IOException
-    {
+    public void tearDown() throws IOException {
         var sourseFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(sourseFile, new File("screenshots\\screenshot.png"));
         driver.quit();
@@ -38,8 +36,7 @@ public class CatalogPageInternetShopTests {
     private By catalogMainPageLocator = By.xpath("//*[contains(@class,'menu')]/*[contains(@class,'menu-item')]/a[text()='Каталог']");
 
     @Test
-    public void сatalogOfHouseholdAppliancesCheckAvailabilityOfhTheElementAfterTheTransition() //проверка заголовков(товаров) через котолог
-    {
+    public void сatalogOfHouseholdAppliancesCheckAvailabilityOfhTheElementAfterTheTransition() { //проверка заголовков(товаров) через котолог 
         //arrange
         driver.navigate().to(url);
         //act
@@ -49,8 +46,7 @@ public class CatalogPageInternetShopTests {
         Assert.assertEquals("Записи после клика нету или она не совпадает", "ТЕЛЕВИЗОРЫ", driver.findElement(titlePageLocator).getText());
     }
     @Test
-    public void сatalogOfHouseholdAppliancesCheckAvailabilityOfhTheElementAfterTheTransitionTest() //поиск товаров через поисковую строку
-    {
+    public void сatalogOfHouseholdAppliancesCheckAvailabilityOfhTheElementAfterTheTransitionTest() { //поиск товаров через поисковую строку
         //arrange
         driver.navigate().to(url);
         var productNamesLocator = By.xpath("//*[@placeholder='Введите название товара...']");
@@ -61,8 +57,7 @@ public class CatalogPageInternetShopTests {
         Assert.assertEquals("После ввода в поиске товара, найденый товар не совпадает","РЕЗУЛЬТАТЫ ПОИСКА: “КНИГИ”",driver.findElement(titlePageLocator).getText());
     }
     @Test
-    public void mainPageClickOrderingTrainsitionTheOrderingSection() //выбор товара переход в корзину и проверка его в корзине
-    {
+    public void mainPageClickOrderingTrainsitionTheOrderingSection() { //выбор товара переход в корзину и проверка его в корзине
         //arrange
         driver.navigate().to(url);
         var tabletsMainPageLocator = By.xpath("//*[@class='widget-title'][text()='Планшеты']");
@@ -77,8 +72,7 @@ public class CatalogPageInternetShopTests {
         Assert.assertTrue("Записи после клика нету или она не совпадает", driver.findElement(orderAvailabilityInTheBasket).isDisplayed());
     }
     @Test
-    public void basketAddTwoProductsPresense() //добавление двух разных товаров и наличие их в корзине
-    {
+    public void basketAddTwoProductsPresense() {//добавление двух разных товаров и наличие их в корзине
         //arrange
         driver.navigate().to(url);
         var addBasketTvLocator = By.xpath("(//a[contains(@class,'add_to_cart_button')])[1]");// тв в корзину
